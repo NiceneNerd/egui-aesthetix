@@ -9,7 +9,7 @@
 #[cfg(feature = "default")]
 pub mod themes;
 
-use egui::style::ScrollStyle;
+use egui::style::{ScrollStyle, TextCursorStyle};
 
 /// Every custom egui theme that wishes to use the egui aesthetix crate must implement this trait.
 /// Aesthetix is structured in such a way that it is easy to customize the theme to your liking.
@@ -384,7 +384,10 @@ pub trait Aesthetix {
                     ..Default::default()
                 },
                 resize_corner_size: 12.0,
-                text_cursor_preview: false,
+                text_cursor: TextCursorStyle {
+                    preview: false,
+                    ..Default::default()
+                },
                 clip_rect_margin: 3.0,
                 button_frame: true,
                 collapsing_header_frame: true,
